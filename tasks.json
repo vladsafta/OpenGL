@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build OpenGL",
+        "type": "shell",
+        "command": "/bin/zsh",
+        "args": [
+          "-c",
+          "clang++ main.cpp -std=c++17 -DGL_SILENCE_DEPRECATION -g -Iinclude -I$(brew --prefix glew)/include -I$(brew --prefix glfw)/include -I$(brew --prefix glm)/include -L$(brew --prefix glew)/lib -L$(brew --prefix glfw)/lib -lGLEW -lglfw -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -o app"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": [
+          "$gcc"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
